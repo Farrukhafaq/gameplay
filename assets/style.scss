@@ -1,0 +1,654 @@
+//----------------Mixins------------------
+
+$browser-context: 16; // Default
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem
+}
+
+//-----------------Variables---------------
+
+$primary: #2C2D65;
+$grey: #CFCDC9;
+$scroll: #696E9F;
+$yellow: #FFD100;
+$white: #FFFFFF;
+$wheat: #EFD19F;
+$lightBlue: #69B3E7;
+$darkBlue: #004EA8;
+$orange: #E8927C;
+$purple: #6B3077;
+$seaGreen: #2AD2C9;
+$red: #ed2a22;
+
+//-----------------Layout-------------------
+
+html {
+  font-size: rem(16);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  body, h1, h2, h3, h4, h5, h6, a{
+    letter-spacing: rem(0.8);
+    a{
+      text-decoration: none;
+    }
+  }
+  body{
+    background-color: #ebebeb;
+    font-family: system-ui;
+    overflow-y: scroll;
+    height: 100%;
+  }
+}
+*:focus {
+  outline: none;
+}
+
+//---------------Players Count Section-------------
+
+.players-count-section{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .players-number{
+    height: rem(260);
+    border: 1px solid $grey;
+    padding: 20px;
+    background: $white;
+    box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+    -moz-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  }
+  .container-div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+  }
+}
+
+//----------------Players List Section---------------
+
+.players-list-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: rem(100) 0;
+  .players-list{
+    border: 1px solid $grey;
+    padding: 20px;
+    background: $white;
+    box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+    -moz-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  }
+  .container-div{
+    display: flex;
+    flex-direction: column;
+    .btns-group{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      order: 1;
+      padding: rem(10) 0;
+      .playersListBackBtn{
+        margin-right: rem(20);
+      }
+    }
+    .lists{
+      display: flex;
+      label{
+        width: 30%;
+      }
+      .input-field{
+        width: 70%;
+      }
+    }
+  }
+}
+
+//----------------------Scoring Section---------------------
+
+.scoring-section{
+  padding: rem(100) 0 rem(20) rem(20);
+  .scoring-update-btns{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: rem(25);
+    button{
+      margin: rem(5) rem(10);
+    }
+  }
+  .rounds{
+    display: flex;
+    margin-left: rem(200);
+    p{
+      width: rem(94);
+      margin: 0;
+      color: $primary;
+    }
+  }
+}
+.position-and-name{
+  display: flex;
+  span{
+    margin-right: rem(10);
+    font-size: rem(14);
+    font-weight: bold;
+    color: $white;
+    background: #a3a3b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(25);
+    height: rem(25);
+  }
+  p{
+    margin: 0;
+    font-weight: bold;
+    color: $primary;
+    text-transform: capitalize;
+  }
+}
+.scoring-full-chart{
+  display: flex;
+  ul{
+    padding: 0;
+    margin: 0;
+    li{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: rem(20) 0;
+    }
+  }
+  .players-score{
+    display: flex;
+    align-items: center;
+    input[type="number"]{
+      width: rem(100);
+      margin-left: rem(-6);
+      border-radius: 0;
+      border: 1px solid #8b867d;
+      padding: rem(8);
+    }
+    &.in-danger{
+      input[type="number"]{
+       border: 1px solid red;
+       background: #FFCECE;
+      }
+    }
+    .has-winner{
+      background: #c0e5bb;
+      border: 1px solid #17ab1a;
+    }
+  }
+  .name-list{
+    width: 10%;
+    .players-name{
+      padding: rem(8);
+    }
+  }
+  .score-list{
+    width: auto;
+    max-width: 80%;
+  }
+  .total-score-list{
+    width: 10%;
+    span{
+      width: rem(35);
+      height: rem(35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $primary;
+      color: $white;
+      font-size: rem(17);
+      font-weight: bold;
+    }
+    li{
+      margin-left: rem(20);
+      height: rem(42);
+    }
+    .in-danger{
+      span{
+        background: #ad0909;
+      }
+    }
+  }
+}
+.new-player-addition{
+  margin-top: rem(15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $grey;
+  padding: 20px;
+  background: $white;
+  box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  -moz-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  input{
+    width: 50%;
+  }
+  button{
+    width: 22%;
+  }
+}
+
+.edit-win-score-field {
+  margin-top: rem(15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $grey;
+  padding: 20px;
+  background: $white;
+  box-shadow: 1px 4px 24px -2px rgba(0, 0, 0, 0.51);
+  -webkit-box-shadow: 1px 4px 24px -2px rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: 1px 4px 24px -2px rgba(0, 0, 0, 0.51);
+
+  input {
+    width: 50%;
+  }
+
+  button {
+    width: 22%;
+  }
+}
+
+//--------------Stats Box-------------------
+
+.stats-main-box{
+  width: 100%;
+  height: 88vh;
+  background: white;
+  .cancel-nav{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: rem(10);
+    a{
+      width: rem(40);
+      height: rem(40);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  img{
+    width: rem(20);
+  }
+  ul{
+    margin: 0;
+    padding: 0 rem(20);
+    list-style-type: none;
+    li{
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid black;
+      padding: rem(10);
+      p{
+        font-size: rem(20);
+        font-weight: 500;
+        color: $primary;
+        text-transform: capitalize;
+        margin: 0;
+      }
+      span{
+        font-size: rem(16);
+        font-weight: 500;
+        color: $white;
+        background: $orange;
+      }
+    }
+  }
+}
+
+//---------------Header---------------------
+
+.header{
+  width: 100%;
+  height: rem(50);
+  border-top: 1px solid $grey;
+  background: $primary;
+  .menu-bar{
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .results{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: $yellow;
+    a{
+      color: $primary;
+      font-size: rem(18);
+      font-weight: bold;
+      background: $yellow;
+      width: 15%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    h3{
+      margin: 0;
+      width: 85%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+//---------------Footer---------------------
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: rem(50);
+  border-top: 1px solid $grey;
+  background: $primary;
+  .author{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      margin: 0;
+      color: $white;
+      a{
+        color: $grey;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//--------------------------Congrats Popup-------------------------
+
+.congrats-gif{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.congratulations-popup{
+  .modal-dialog{
+    margin: 0;
+    height: 100%;
+    max-width: 100%;
+  }
+  &.modal{
+    background-color: rgba(#030717,0.6);
+  }
+}
+
+.congrats-content-div{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(440);
+  top: rem(384);
+  h3{
+    text-transform: capitalize;
+    color: $white;
+    letter-spacing: 0;
+    margin-top: rem(32);
+  }
+  p{
+    font-size: rem(24);
+    font-weight: bold;
+    letter-spacing: 0;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+//----------------Winner List---------------------
+
+.new-winner-addition, .winners-list-section{
+  display: none;
+}
+
+.new-winner-addition{
+  margin: rem(15);
+  background: $white;
+  padding: rem(20);
+  border-radius: rem(10);
+  box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+  -moz-box-shadow: 1px 4px 24px -2px rgba(0,0,0,0.51);
+
+  .btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: rem(10);
+    column-gap: rem(15);
+
+    button{
+      width: rem(100);
+    }
+  }
+}
+
+.winners-list{
+  margin: 0;
+  padding: rem(20);
+  list-style-type: none;
+  li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(8);
+    border: 1px solid $primary;
+    p{
+      margin: 0;
+      font-size: rem(20);
+      font-weight: 500;
+      color: $primary;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.winnerName{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+input#winnerRadioBtn{
+  width: rem(30);
+  height: rem(30);
+}
+
+.winners-list-section .winner-btns{
+  display: flex;
+  justify-content: center;
+  column-gap: rem(20);
+  padding-top: rem(40);
+}
+
+.inputRadio{
+  padding-left: rem(20);
+}
+
+
+//---------------Media Queries--------------------
+
+@media (max-width: 575.98px){
+  .congrats-gif{
+    img{
+      width: rem(350);
+    }
+  }
+  body{
+    &.view-withKeyboard{
+      .footer{
+        display: none;
+      }
+    }
+  }
+  .players-count-section{
+    //display: none;
+    height: auto;
+    padding-top: rem(100);
+  }
+  .scoring-section{
+    padding: rem(10) 0 0 0;
+    min-height: calc(100vh - 100px);
+    margin-bottom: rem(100);
+    .rounds{
+      display: none;
+      p{
+        width: rem(40);
+      }
+    }
+    .scoring-update-btns{
+      margin-top: rem(10);
+    }
+  }
+  .scoring-full-chart {
+    ul{
+      li{
+        margin: 0;
+      }
+    }
+    .name-list {
+      width: 30%;
+      li{
+        height: rem(42);
+      }
+      .players-name{
+        p{
+          text-transform: capitalize;
+          font-size: rem(15);
+        }
+      }
+    }
+    .score-list {
+      margin-right: rem(8);
+      width: 53%;
+      overflow-x: scroll;
+      li{
+        margin: 0;
+        &:last-child{
+          margin-bottom: rem(20);
+        }
+      }
+    }
+    .total-score-list {
+      width: 12%;
+      li{
+        margin: 0;
+      }
+    }
+    .players-score{
+      input[type=number]{
+        width: rem(35);
+        margin-left: 0;
+      }
+      div{
+        margin-left: rem(10);
+      }
+    }
+  }
+  .position-and-name{
+    align-items: center;
+    span{
+      margin-right: rem(5);
+      padding: rem(5);
+      width: rem(15);
+      height: rem(18);
+      font-size: rem(12);
+    }
+  }
+  .footer{
+    margin-top: rem(100);
+    .author{
+      p{
+        text-align: center;
+        font-size: rem(12);
+      }
+    }
+  }
+  .players-list-section{
+    margin: rem(20) 0 rem(100) 0;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) and (orientation: landscape) {
+  .scoring-section{
+    padding: rem(10) 0 0 0;
+    min-height: calc(100vh - 100px);
+    margin-bottom: rem(100);
+    .rounds{
+      display: none;
+      p{
+        width: rem(40);
+      }
+    }
+    .scoring-update-btns{
+      margin-top: rem(10);
+    }
+  }
+  .scoring-full-chart {
+    .name-list {
+      width: 20%;
+      li{
+        height: rem(42);
+        margin: 0;
+      }
+    }
+    .score-list {
+      margin-right: rem(10);
+      li{
+        margin: 0;
+        &:last-child{
+          margin-bottom: rem(20);
+        }
+      }
+      width: 70%;
+      overflow-x: scroll;
+    }
+    .total-score-list {
+      li{
+        margin: 0 rem(20) 0 0;
+      }
+      width: 15%;
+    }
+
+    .players-score {
+      input[type=number] {
+        width: rem(50);
+        margin-left: 0;
+      }
+    }
+  }
+  .players-count-section{
+    height: auto;
+    padding-top: rem(20);
+  }
+  .players-list-section{
+    margin: rem(20) 0 rem(100) 0;
+  }
+}

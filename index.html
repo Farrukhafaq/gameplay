@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Play</title>
+
+    <link rel="stylesheet" href="assets/style.css"/>
+
+    <script type="text/javascript" src="plugins/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="plugins/bootstrap5/css/bootstrap.min.css">
+    <script src="plugins/bootstrap5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/index.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="menu-bar">
+            <div class="results">
+                <h3>Dominoes</h3>
+                <a href="javascript:" class="stats-btn">Stats</a>
+            </div>
+        </div>
+    </header>
+    <section class="stats-main-box">
+        <div class="cancel-nav">
+            <a href="javascript:"><img src="assets/images/cross.svg" alt="cross"></a>
+        </div>
+        <ul class="stats-list">
+
+        </ul>
+    </section>
+    <section class="players-count-section">
+        <div class="players-number">
+            <div class="container-div">
+                <div class="form-group row">
+                    <label for="noOfPlayers" class="col-sm-6 col-form-label">Number of Players</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="noOfPlayers" onkeyup="countChar(this)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="scoreToWin" class="col-sm-6 col-form-label">Score to Win</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="scoreToWin" onkeyup="countChar(this)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 d-flex justify-content-between pt-3">
+                        <button type="button" class="btn btn-dark continuePreviousMatchBtn">Continue Previous Match</button>
+                        <button type="submit" class="btn btn-primary playersCountNextBtn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="players-list-section">
+        <div class="players-list">
+            <div class="container-div">
+                <div class="btns-group">
+                    <button type="button" class="btn btn-primary playersListNextBtn">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="scoring-section">
+        <div class="scoring-full-chart">
+            <ul class="name-list"></ul>
+            <ul class="total-score-list"></ul>
+            <ul class="score-list">
+            </ul>
+        </div>
+        <div class="scoring-update-btns">
+            <button type="button" class="btn btn-warning update-btn">Update Score</button>
+            <button type="button" class="btn btn-primary add-player-btn">Add Player</button>
+            <button type="button" class="btn btn-secondary edit-win-score-btn">Edit Score to Win</button>
+        </div>
+        <div class="new-player-addition">
+            <input type="text" name="newPlayerName" class="form-control" required="required">
+            <button type="button" class="btn btn-primary player-added-btn">Add</button>
+            <button type="button" class="btn btn-dark close-player-added">Cancel</button>
+        </div>
+        <div class="edit-win-score-field">
+            <input type="text" name="winscore" class="form-control" required="required">
+            <button type="button" class="btn btn-primary save-edit-win-score">Save</button>
+            <button type="button" class="btn btn-dark close-edit-win-score">Cancel</button>
+        </div>
+    </section>
+    <section class="winners-list-section">
+        <ul class="winners-list">
+
+        </ul>
+        <div class="winners"></div>
+        <div class="winner-btns">
+            <button type="button" class="btn btn-success winnersListSaveBtn">Save</button>
+            <button type="button" class="btn btn-danger winnersListAddWinnerBtn">Add Winner</button>
+        </div>
+        <div class="new-winner-addition">
+            <input type="text" name="newWinnerName" class="form-control" required="required">
+            <div class="btns">
+                <button type="button" class="btn btn-primary winner-added-btn">Add</button>
+                <button type="button" class="btn btn-dark close-winner-added">Cancel</button>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="author">
+            <p>Successfully Designed and Developed by <a href="https://www.linkedin.com/in/farrukh-afaq-839a72174/" target="_blank">Farrukh Afaq</a></p>
+        </div>
+    </footer>
+    <div class="modal fade congratulations-popup" id="congratulationsPopup" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="congrats-gif">
+                <img src="" alt="gif">
+                <div class="congrats-content-div">
+                    <h3>Congratulations</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
